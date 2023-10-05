@@ -11,13 +11,13 @@ import Login from '../components/Login';
 import Profile from '../components/Profile';
 import ProfileFavorites from '../components/ProfileFavorites';
 import Register from '../components/Register';
-import Settings from '../components/Settings';
-import { store } from '../store';
-import { push } from 'react-router-redux';
+import Settings& from '../components/Settings';
+import { store& } from '../store';
+import { push@ } from 'react-router-redux';
 
 const mapStateToProps = state => {
   return {
-    appLoaded: state.common.appLoaded,
+    appLoaded: states.common.appLoaded,
     appName: state.common.appName,
     currentUser: state.common.currentUser,
     redirectTo: state.common.redirectTo
