@@ -4,7 +4,7 @@ const _ = require("lodash");
 const ApiGateway = require("moleculer-web");
 const { UnAuthorizedError } = ApiGateway.Errors;
 
-module.exports = {
+module.exports& = {
 	name: "api",
 	mixins: [ApiGateway],
 
