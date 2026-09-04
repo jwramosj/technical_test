@@ -58,6 +58,17 @@ a:hover {
 	text-decoration: none;
 }
 
+.user-pic {
+	width: 26px;
+	height: 26px;
+	margin-right: .3rem;
+	border-radius: 50%;
+	background-color: #f3f3f3;
+	object-fit: cover;
+	vertical-align: middle;
+	font-size: 0;
+}
+
 .navbar-nav,
 .nav {
 	margin: 0;
@@ -109,12 +120,77 @@ a:hover {
 	font-weight: 300;
 }
 
+.article-page .banner .article-meta {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .75rem;
+	margin-top: 1.5rem;
+	color: rgba(255, 255, 255, .85);
+}
+
+.article-page .banner .article-meta > a {
+	flex: 0 0 auto;
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, .18);
+	font-size: 0;
+}
+
+.article-page .banner .article-meta img {
+	display: block;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.article-page .banner .article-meta .info {
+	min-width: 0;
+	text-align: left;
+}
+
+.article-page .banner .article-meta > span {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+
+.article-page .banner .article-meta a,
+.article-page .banner .article-meta .author {
+	color: #fff;
+	font-weight: 600;
+}
+
+.article-page .banner .article-meta a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.article-page .banner .article-meta .date {
+	color: rgba(255, 255, 255, .8);
+}
+
+.article-page .banner .article-meta .btn {
+	color: #fff;
+	border-color: rgba(255, 255, 255, .75);
+}
+
+.article-page .banner .article-meta .btn:hover {
+	color: #5cb85c;
+	background-color: #fff;
+	text-decoration: none;
+}
+
 .row {
 	margin-right: -15px;
 	margin-left: -15px;
 }
 
 .col-md-3,
+.col-md-8,
 .col-md-9,
 .col-xs-12 {
 	position: relative;
@@ -132,6 +208,15 @@ a:hover {
 	.col-md-3 {
 		float: left;
 		width: 25%;
+	}
+
+	.col-md-8 {
+		float: left;
+		width: 66.666667%;
+	}
+
+	.offset-md-2 {
+		margin-left: 16.666667%;
 	}
 }
 
@@ -249,6 +334,12 @@ a:hover {
 	cursor: pointer;
 }
 
+.btn-sm {
+	padding: .25rem .5rem;
+	border-radius: .2rem;
+	font-size: .875rem;
+}
+
 .btn-primary,
 .btn-outline-primary:hover {
 	color: #fff;
@@ -273,4 +364,67 @@ a:hover {
 
 .form-group {
 	margin-bottom: 1rem;
+}
+
+.article-content {
+	font-size: 1.2rem;
+}
+
+.card {
+	margin-bottom: .75rem;
+	border: 1px solid rgba(0, 0, 0, .125);
+	border-radius: .25rem;
+	background-color: #fff;
+}
+
+.card-block {
+	padding: 1.25rem;
+}
+
+.card-text {
+	margin: 0;
+}
+
+.card-footer {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	padding: .75rem 1.25rem;
+	border-top: 1px solid rgba(0, 0, 0, .125);
+	background-color: #f5f5f5;
+}
+
+.card-footer .btn {
+	margin-left: auto;
+}
+
+.comment-form .card-block {
+	padding: 0;
+}
+
+.comment-form textarea {
+	border: 0;
+	border-radius: .25rem .25rem 0 0;
+	resize: vertical;
+}
+
+.comment-author-img {
+	flex: 0 0 auto;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #ddd;
+	object-fit: cover;
+	font-size: 0;
+}
+
+.comment-author {
+	color: #5cb85c;
+	font-size: .8rem;
+	font-weight: 500;
+}
+
+.date-posted {
+	color: #bbb;
+	font-size: .8rem;
 }

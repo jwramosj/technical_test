@@ -3,6 +3,19 @@
 const { ForbiddenError } = require("moleculer-web").Errors;
 const DbService = require("../mixins/db.mixin");
 
+const DEFAULT_AVATAR = "/favicon.ico";
+
+function normalizeImage(image) {
+	if (typeof image !== "string")
+		return DEFAULT_AVATAR;
+
+	const value = image.trim();
+	if (/^(https?:\/\/|data:image\/|\/)/i.test(value))
+		return value;
+
+	return DEFAULT_AVATAR;
+}
+
 module.exports = {
 	name: "comments",
 	mixins: [DbService("comments")],
@@ -228,6 +241,7 @@ module.exports = {
 			return this.Promise.resolve(entity)
 				.then(entity => {
 					entity.id = entity._id;
+					entity.author.image = normalizeImage(entity.author.image);
 
 					if (loggedInUser) {
 						return ctx.call("follows.has", { user: loggedInUser._id.toString(), follow: entity.author._id })

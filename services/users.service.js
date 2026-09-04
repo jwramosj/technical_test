@@ -8,6 +8,19 @@ const jwt 			= require("jsonwebtoken");
 
 const DbService = require("../mixins/db.mixin");
 
+const DEFAULT_AVATAR = "/favicon.ico";
+
+function normalizeImage(image) {
+	if (typeof image !== "string")
+		return DEFAULT_AVATAR;
+
+	const value = image.trim();
+	if (/^(https?:\/\/|data:image\/|\/)/i.test(value))
+		return value;
+
+	return DEFAULT_AVATAR;
+}
+
 module.exports = {
 	name: "users",
 	mixins: [DbService("users")],
@@ -344,7 +357,7 @@ module.exports = {
 		transformEntity(user, withToken, token) {
 			if (user) {
 				//user.image = user.image || "https://www.gravatar.com/avatar/" + crypto.createHash("md5").update(user.email).digest("hex") + "?d=robohash";
-				user.image = user.image || "";
+				user.image = normalizeImage(user.image);
 				if (withToken)
 					user.token = token || this.generateJWT(user);
 			}
@@ -361,7 +374,7 @@ module.exports = {
 		 */
 		transformProfile(ctx, user, loggedInUser) {
 			//user.image = user.image || "https://www.gravatar.com/avatar/" + crypto.createHash("md5").update(user.email).digest("hex") + "?d=robohash";
-			user.image = user.image || "https://static.productionready.io/images/smiley-cyrus.jpg";
+			user.image = normalizeImage(user.image);
 
 			if (loggedInUser) {
 				return ctx.call("follows.has", { user: loggedInUser._id.toString(), follow: user._id.toString() })

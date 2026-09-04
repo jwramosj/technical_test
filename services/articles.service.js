@@ -6,6 +6,8 @@ const { ForbiddenError } = require("moleculer-web").Errors;
 const _ = require("lodash");
 const DbService = require("../mixins/db.mixin");
 
+const DEFAULT_AVATAR = "/favicon.ico";
+
 function createSlug(text) {
 	return text
 		.toString()
@@ -14,6 +16,17 @@ function createSlug(text) {
 		.toLowerCase()
 		.replace(/[^a-z0-9]+/g, "-")
 		.replace(/^-+|-+$/g, "");
+}
+
+function normalizeImage(image) {
+	if (typeof image !== "string")
+		return DEFAULT_AVATAR;
+
+	const value = image.trim();
+	if (/^(https?:\/\/|data:image\/|\/)/i.test(value))
+		return value;
+
+	return DEFAULT_AVATAR;
 }
 
 module.exports = {
@@ -593,6 +606,9 @@ module.exports = {
 		 */
 		transformEntity(ctx, entity) {
 			if (!entity) return this.Promise.resolve();
+
+			if (entity.author)
+				entity.author.image = normalizeImage(entity.author.image);
 
 			return this.Promise.resolve(entity);
 		}
