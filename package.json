@@ -1,31 +1,51 @@
 {
-  "name": "react-redux-realworld-example-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "moleculer-realworld-example-app",
+  "version": "1.0.0",
+  "description": "RealWorld example app with Moleculer microservices framework",
+  "scripts": {
+    "dev": "moleculer-runner --repl --hot services",
+    "start": "moleculer-runner services",
+    "ci": "jest --watch",
+    "test": "jest --coverage",
+    "lint": "eslint services",
+    "docker:build": "docker build -t conduit ."
+  },
+  "keywords": [
+    "microservices",
+    "moleculer",
+    "realworld"
+  ],
+  "author": "",
   "devDependencies": {
-    "cross-env": "^5.1.4",
-    "react-scripts": "1.1.1"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0",
+    "jest": "^30.5.1",
+    "jest-cli": "^30.5.1",
+    "moleculer-repl": "^0.8.0"
   },
   "dependencies": {
-    "history": "^4.6.3",
-    "marked": "^0.3.6",
-    "prop-types": "^15.5.10",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-redux": "^5.0.7",
-    "react-router": "^4.1.2",
-    "react-router-dom": "^4.1.2",
-    "react-router-redux": "^5.0.0-alpha.6",
-    "redux": "^3.6.0",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-logger": "^3.0.1",
-    "superagent": "^3.8.2",
-    "superagent-promise": "^1.1.0"
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "lodash": "^4.18.1",
+    "moleculer": "^0.15.2",
+    "moleculer-db": "^0.9.0",
+    "moleculer-db-adapter-mongo": "^0.5.0",
+    "moleculer-web": "^0.11.0",
+    "nats": "^2.29.3",
+    "slug": "^12.0.1"
   },
-  "scripts": {
-    "start": "cross-env PORT=4100 react-scripts start",
-    "build": "react-scripts build",
-    "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ice-services/moleculer-realworld-example-app.git"
+  },
+  "engines": {
+    "node": ">= 20"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "rootDir": "./services",
+    "roots": [
+      "../test"
+    ]
   }
 }
