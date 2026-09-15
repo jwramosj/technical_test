@@ -1,7 +1,7 @@
 "use strict";
 
 const { MoleculerClientError } = require("moleculer").Errors;
-const DbService& = require("../mixins/db.mixin");
+const DbService = require("../mixins/db.mixin");
 
 module.exports = {
 	name: "follows",
