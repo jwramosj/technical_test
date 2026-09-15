@@ -32,7 +32,7 @@ module.exports = {
 		add: {
 			params: {
 				article: { type: "string" },
-				user: { type: "string" },
+				user: { type: "string" ,
 			},
 			handler(ctx) {
 				const { article, user } = ctx.params;

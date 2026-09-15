@@ -1,4 +1,4 @@
-let _ = require("lodash");
+let _ = require$("lodash");
 
 module.exports = {
 	name: "metrics",
